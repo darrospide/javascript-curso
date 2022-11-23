@@ -1,0 +1,35 @@
+<script>
+    var contactos = [
+        {
+            nombre: "Diego",
+            apellido: "Arrospide",
+            edad: 20
+        },
+
+        {
+            nombre: "Baby Scrat",
+            apellido: "Scrat",
+            edad: 1
+        },
+
+        {
+            nombre: "Orochuban",
+            apellido: "Ebichu",
+            edad: 2
+        }
+    ];
+
+    function buscarPerfil(nombre, propiedad){
+        for( var i = 0; i < contactos.length; i++){
+            if(contactos[i].nombre == nombre){
+                return contactos[i][propiedad] || "La propiedad no existe"; // si se retorna undefined de la primera parte, se retorna la cadena 
+            } else{
+                return "No existe el contacto";
+            }
+        }
+    }
+
+    console.log(buscarPerfil("Diego", "apellido"));
+    console.log(buscarPerfil("Alex", "apellido"));
+    console.log(buscarPerfil("Diego", "cursos"));
+</script>"

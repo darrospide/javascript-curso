@@ -1,0 +1,11 @@
+<script>
+    function proximoEnLaFila (arreglo, elemento){
+        arreglo.push(elemento);
+        return arreglo.shift();
+    }
+
+    var miCadena = [1,2,3,4,5];
+    console.log("Antes: " + JSON.stringify(miCadena)); // JSON.stringify para mostrar mejor en consola los arreglos.
+    proximoEnLaFila(miCadena,6);
+    console.log("Despues: "  + miCadena);
+</script>

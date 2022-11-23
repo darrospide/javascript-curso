@@ -1,0 +1,40 @@
+<script>
+    var coleccionDeDiscos = {
+        7853: {
+            tituloDelAlbum: "Bee Gees Greatest",
+            artista: "Bee Gees",
+            canciones: ["Stay Alive"]
+        },
+        5439: {
+            tituloDelAlbum: "ABBA Gold"
+        }
+    };
+    
+    function actualizarDiscos(discos, id, propiedad, valor){
+        if(valor === "") {
+            delete discos[id][propiedad];
+        } else if (propiedad === "canciones") {
+            discos[id][propiedad] = discos [id][propiedad] || [];  // Se va intentar acceder a la propiedad en el albúm correspondiente con la 1era parte de la expresión, si el valor no es undefined se mantiene intacta la lista de canciones
+            discos[id][propiedad].push(valor);   
+        } else {
+            discos[id][propiedad] = valor;
+        }
+    }
+
+    console.log(coleccionDeDiscos[7853].tituloDelAlbum);
+    actualizarDiscos(coleccionDeDiscos,7853,"tituloDelAlbum","");        // Esto borrará la propiedad tituloDelAlbum
+    console.log(coleccionDeDiscos[7853].tituloDelAlbum);
+
+    console.log(coleccionDeDiscos[5439].canciones);
+    actualizarDiscos(coleccionDeDiscos,5439,"canciones","Mamma Mia");        // Si la propiedad es igual a canciones, la función asigna un arreglo vació y luego el valor
+    console.log(coleccionDeDiscos[5439].canciones);
+
+    console.log(coleccionDeDiscos[5439].artista);
+    actualizarDiscos(coleccionDeDiscos,5439,"artista","Airon Meiden");
+    console.log(coleccionDeDiscos[5439].artista);
+
+    console.log(coleccionDeDiscos[7853].canciones);
+    actualizarDiscos(coleccionDeDiscos, 7853, "canciones", "It's my life");
+    console.log(coleccionDeDiscos[7853].canciones);
+
+</script>
